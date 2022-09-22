@@ -24,6 +24,7 @@ import BooksScreen from './screens/Books';
 import BookScreen from './screens/Book'
 import { NavigationContainer } from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 
 export type RootStackParams = {
@@ -32,11 +33,27 @@ export type RootStackParams = {
   }
   Home:undefined;
   Account:undefined;
-  Books: undefined;
+  BooksStack: BookStackParams;
 };
 
 
-const RootStack = createNativeStackNavigator<RootStackParams>();
+const RootStack = createBottomTabNavigator<RootStackParams>();
+
+export type BookStackParams = {
+  Books: undefined,
+  Book: {
+    name:string;
+  },
+}
+
+const BooksStack = createNativeStackNavigator<BookStackParams>();
+
+const BookScreenStack = () => {
+  return <BooksStack.Navigator initialRouteName="Books">
+    <BooksStack.Screen name="Books" component={BooksScreen}/>
+    <BooksStack.Screen name="Book" component={BookScreen}/>
+  </BooksStack.Navigator>
+}
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -46,7 +63,7 @@ const App = () => {
       <RootStack.Navigator initialRouteName="Home">
         <RootStack.Screen name="Home" component={HomeScreen}/>
         <RootStack.Screen name="Account" component={AccountScreen}/>
-        <RootStack.Screen name="Books" component={BooksScreen}/>
+        <RootStack.Screen name="BooksStack" component={BookScreenStack}/>
         <RootStack.Screen name="Book" component={BookScreen}/>
       </RootStack.Navigator>
     </NavigationContainer>
