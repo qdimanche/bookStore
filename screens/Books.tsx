@@ -5,7 +5,7 @@ import Menu from '../components/Menu';
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParams } from "../App";
 
-type Props = NativeStackScreenProps<RootStackParams, "Books">
+type Props = NativeStackScreenProps<RootStackParams, "BooksStack">
 
 const BooksScreen = ({navigation}:Props) => {
   return (
@@ -14,21 +14,15 @@ const BooksScreen = ({navigation}:Props) => {
       <ScrollView>
         <Text style={styles.sectionTitle}>Catégories de livre</Text>
         <BookCard
-          name="df"
+          name="Romans"
           onPress={name => {
-            navigation.navigate('Book', {name})
+            navigation.push('Book', {name:'Romans'})
           }}
         />
         <BookCard
-          name="Livre 2"
+          name="Autobiographies"
           onPress={name => {
-            navigation.navigate('Book', {name})
-          }}
-        />
-        <BookCard
-          name="Livre 3"
-          onPress={name => {
-            navigation.navigate('Book', {name})
+            navigation.push('Book', {name:'Autobiographies'})
           }}
         />
 

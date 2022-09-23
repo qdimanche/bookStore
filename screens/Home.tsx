@@ -6,50 +6,28 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParams } from "../App";
 
 
-type Props = NativeStackScreenProps<RootStackParams, 'Book'>
+type Props = NativeStackScreenProps<RootStackParams, 'HomeStack'>
 
 const HomeScreen = ({navigation}:Props) => {
   return (
     <View style={styles.container}>
       <Text style={styles.screenTitle}>Liste des livres disponibles</Text>
       <View>
-        <Text style={styles.sectionTitle}>Livres populaires</Text>
+        <Text style={styles.sectionTitle}>Livres</Text>
         <BookCard
-          name="df"
-          onPress={name => {
-            navigation.navigate('Book', {name})
+          name="Romans"
+          onPress={() => {
+            /*navigation.push('Book', {name:'Romans'})*/
+            navigation.navigate("BooksStack", {
+              screen: "Book",
+              params: {name: "Hello from Home"},
+            });
           }}
         />
         <BookCard
-          name="Livre 2"
-          onPress={name => {
-            navigation.navigate('Book', {name})
-          }}
-        />
-        <BookCard
-          name="Livre 3"
-          onPress={name => {
-            navigation.navigate('Book', {name})
-          }}
-        />
-
-        <Text style={styles.sectionTitle}>Dernières parutions</Text>
-        <BookCard
-          name="Livre 6"
-          onPress={name => {
-            navigation.navigate('Book', {name})
-          }}
-        />
-        <BookCard
-          name="Livre 5"
-          onPress={name => {
-            navigation.navigate('Book', {name})
-          }}
-        />
-        <BookCard
-          name="Livre 6"
-          onPress={name => {
-            navigation.navigate('Book', {name})
+          name="Autobiographies"
+          onPress={() => {
+            navigation.push('Book', {name:'Autobiographies'})
           }}
         />
 

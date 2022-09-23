@@ -22,34 +22,66 @@ import AccountScreen from "./screens/Account";
 import HomeScreen from './screens/Home';
 import BooksScreen from './screens/Books';
 import BookScreen from './screens/Book'
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, NavigatorScreenParams } from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
 export type RootStackParams = {
   Book: {
     name:string;
   }
-  Home:undefined;
+  HomeStack:undefined;
   Account:undefined;
-  BooksStack: BookStackParams;
+  BooksStack: NavigatorScreenParams<BooksStackParams>;
 };
 
 
 const RootStack = createBottomTabNavigator<RootStackParams>();
 
-export type BookStackParams = {
+export type BooksStackParams = {
+  Home: undefined,
   Books: undefined,
   Book: {
     name:string;
   },
 }
 
-const BooksStack = createNativeStackNavigator<BookStackParams>();
+const BooksStack = createNativeStackNavigator<BooksStackParams>();
+
+
+export type HomeStackParams = {
+  Home: undefined,
+  Book: {
+    name:string;
+  },
+}
+
+
+const HomeStack = createNativeStackNavigator<HomeStackParams>();
+
+const HomeScreenStack = () => {
+  return <HomeStack.Navigator
+    initialRouteName="Home"
+    screenOptions={{
+        headerShown: false,
+      }}
+  >
+    <HomeStack.Screen name="Home" component={HomeScreen}/>
+    <HomeStack.Screen name="Book" component={BookScreen}/>
+  </HomeStack.Navigator>
+}
+
 
 const BookScreenStack = () => {
-  return <BooksStack.Navigator initialRouteName="Books">
+  return <BooksStack.Navigator
+    initialRouteName="Books"
+    screenOptions={{
+      headerShown: false,
+    }}
+  >
     <BooksStack.Screen name="Books" component={BooksScreen}/>
     <BooksStack.Screen name="Book" component={BookScreen}/>
   </BooksStack.Navigator>
@@ -60,11 +92,25 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <RootStack.Navigator initialRouteName="Home">
-        <RootStack.Screen name="Home" component={HomeScreen}/>
-        <RootStack.Screen name="Account" component={AccountScreen}/>
+      <RootStack.Navigator
+        initialRouteName="HomeStack"
+        screenOptions={{
+          headerShown: false,
+          tabBarActiveTintColor: "#e67a15",
+          tabBarInactiveTintColor: 'gray',
+        }}
+      >
+        <RootStack.Screen
+          name="HomeStack"
+          component={HomeScreenStack}
+          options={{
+            tabBarIcon: ({color, size}) => (
+              <Icon name='home-outline' color={color} size={size}/>
+            )
+          }}
+        />
         <RootStack.Screen name="BooksStack" component={BookScreenStack}/>
-        <RootStack.Screen name="Book" component={BookScreen}/>
+        <RootStack.Screen name="Account" component={AccountScreen}/>
       </RootStack.Navigator>
     </NavigationContainer>
 

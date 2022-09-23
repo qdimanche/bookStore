@@ -41,6 +41,11 @@
 		5709B34CF0A7D63546082F79 /* Pods-bookApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookApp.release.xcconfig"; path = "Target Support Files/Pods-bookApp/Pods-bookApp.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-bookApp-bookAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookApp-bookAppTests.debug.xcconfig"; path = "Target Support Files/Pods-bookApp-bookAppTests/Pods-bookApp-bookAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-bookApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bookApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E5239F328DDE31F00F8230D /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		5E5239F728DDE32100F8230D /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
+		5E5239F828DDE32100F8230D /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
+		5E5239F928DDE32100F8230D /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		5E5239FD28DDE32300F8230D /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = bookApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-bookApp-bookAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookApp-bookAppTests.release.xcconfig"; path = "Target Support Files/Pods-bookApp-bookAppTests/Pods-bookApp-bookAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -86,6 +91,7 @@
 		13B07FAE1A68108700A75B9A /* bookApp */ = {
 			isa = PBXGroup;
 			children = (
+				5E5239ED28DDE22F00F8230D /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -104,6 +110,18 @@
 				19F6CBCC0A4E27FBF8BF4A61 /* libPods-bookApp-bookAppTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5E5239ED28DDE22F00F8230D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5E5239F928DDE32100F8230D /* FontAwesome.ttf */,
+				5E5239F828DDE32100F8230D /* FontAwesome5_Brands.ttf */,
+				5E5239F728DDE32100F8230D /* FontAwesome5_Regular.ttf */,
+				5E5239FD28DDE32300F8230D /* FontAwesome5_Solid.ttf */,
+				5E5239F328DDE31F00F8230D /* Ionicons.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
